@@ -1,0 +1,43 @@
+/*
+Pressing a button turns on onboard LED (pin 13) and starts servo motor running a back and forthe cycle.
+Pressing the button again turns off the LED and stops the servo.
+*/
+
+/* servo values */
+#include <Servo.h>
+Servo myservo;  // designates name for servo object
+
+/* button values */
+#define BUTTON_PIN 7
+int lastButtonState = LOW;
+
+/* led values */
+#define LED_PIN 13
+int ledState = LOW;
+
+void setup() {
+  myservo.attach(9);
+  pinMode(BUTTON_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  int buttonState != digitalRead(BUTTON_PIN);
+  if (buttonState != lastButtonState) {
+    lastButtonState = buttonState;
+    if (buttonState == LOW) {
+      ledState = (ledState == HIGH) ? LOW: HIGH;
+      digitalWrite(LED_PIN, ledState);
+
+      for (pos = 0; pos <= 45; pos += 1) {
+        myservo.write(pos);
+        delay(15);
+      }
+      for (pos =45; pos >= 0; pos -= 1) { 
+        myservo.write(pos);              
+        delay(15);                       
+      }
+    }
+  }
+}
+
