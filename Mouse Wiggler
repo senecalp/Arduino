@@ -10,6 +10,7 @@ powerState = 'off';
 #include <Servo.h>
 Servo myservo;  // designates name for servo object
 pos = 0;        // set starting position
+direction = 'up';
 
 /* button values */
 #define BUTTON_PIN 7
@@ -30,12 +31,32 @@ void loop() {
 
     if (buttonState == HIGH && powerState == 'off') {
       powerState = 'on';
-    else if (buttonState == HIGH && powerState == 'on') {
-      powerState = 'off';
+      else if (buttonState == HIGH && powerState == 'on') {
+        powerState = 'off';
+      }
     }
+    if (powerState = 'on')  {         // if ON turn on LED and step Servo
+      digitalWrite(LED_PIN, HIGH);
+      runServo();
+    } 
+}
 
-  
-    }
+runServo() {        // alternate direction servo goes but flopping pos change up and down
+  if (direction == 'up' && pos ,= 45) {
+    pos++;
+    myservo.write(pos);
+  }
+  else if (pos == 45) {
+    direction = 'down';
+    myservo.write(pos);
+  }
+  else if (direction == 'down' && pos >= 0) {
+    myservo.write(pos);
+  }
+  else if (pos == 0)  {
+    direction = 'up';
+    myservo.write(pos);
+  }
 }
 
 
