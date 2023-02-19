@@ -4,13 +4,13 @@ Pressing the button again turns off the LED and stops the servo.
 */
 
 /* power management values */
-powerState = 'off';
+int powerState = 'off';
 
 /* servo values */
 #include <Servo.h>
 Servo myservo;  // designates name for servo object
-pos = 0;        // set starting position
-direction = 'up';
+int pos = 0;        // set starting position
+int direction = 'up';
 
 /* button values */
 #define BUTTON_PIN 7
