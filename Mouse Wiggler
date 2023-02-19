@@ -13,7 +13,7 @@ pos = 0;        // set starting position
 
 /* button values */
 #define BUTTON_PIN 7
-buttonState = LOW;
+int buttonState = LOW;
 
 /* led values */
 #define LED_PIN 13
@@ -26,9 +26,16 @@ void setup() {
 }
 
 void loop() {
-    buttonState = digitalRead(BUTTON_PIN);      // check if button is pressed
+  buttonState = digitalRead(BUTTON_PIN);      // check if button is pressed and switch power
 
-    if 
+    if (buttonState == HIGH && powerState == 'off') {
+      powerState = 'on';
+    else if (buttonState == HIGH && powerState == 'on') {
+      powerState = 'off';
+    }
+
+  
+    }
 
 
 
