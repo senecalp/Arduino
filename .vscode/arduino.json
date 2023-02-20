@@ -1,0 +1,5 @@
+{
+    "sketch": "MouseWiggler.ino",
+    "configuration": "cpu=16MHzatmega328",
+    "board": "arduino:avr:pro"
+}
